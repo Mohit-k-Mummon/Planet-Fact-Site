@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@400;500;600;700&family=League+Spartan:wght@400;500;600;700&display=swap');
+
 *,
 *::before,
 *::after {
@@ -13,10 +15,299 @@ html {
 
 body {
     min-height: 100vh;
-    padding: 2.4rem;
+    background-color: var(--dark-blue);
+    background-image: url(assets/background-stars.svg);
+    background-size: contain;
 }
 
 img, picture, video, canvas, svg {
     display: block;
     max-width: 100%;
+}
+
+/*******************
+     VARIABLES
+********************/
+:root {
+    /* Colors */
+    --white: #fff;
+    --dark-blue: #070724;
+    --desaturated-blue: #38384f;
+    --gray: #838391;
+    --light-blue: #419ebb;
+    --orange: #eda249;
+    --purple: #6f3ed6;
+    --red: #d14c32;
+    --bright-red: #d83a34;
+    --deep-orange: #cd5120;
+    --lime: #1ec2a4;
+    --blue: #2d68f0;
+
+    /* Typography */
+    --antonio: 'Antonio', sans-serif;
+    --spartan: 'League Spartan', sans-serif;
+}
+
+
+
+
+/*******************
+    NAV BAR
+********************/
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.6rem 2.4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav__heading {
+    color: var(--white);
+    font-family: var(--antonio);
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 2.8rem;
+}
+
+/* Hamburger Icon */
+.nav .hamburger-icon {
+    cursor: pointer;
+}
+
+.nav .hamburger-icon.active {
+    opacity: 0.2;
+}
+
+/* Menu */
+.nav__tablet-desktop-menu {
+    display: none;
+    flex-direction: row;
+    gap: 3.3rem;
+}
+
+.nav__tablet-desktop-menu li {
+    list-style: none;
+}
+
+/* Menu Buttons */
+.nav__tablet-desktop-menu .menu-btn {
+    background-color: transparent;
+    color: var(--white);
+    font-family: var(--spartan);
+    font-weight: 600;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    opacity: 0.6;
+    padding: 0.4rem 0;
+}
+
+
+
+@media screen and (min-width: 768px) {
+    .nav {
+        flex-direction: column;
+        padding: 3.2rem 0 2.rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .nav__heading {
+        margin-bottom: 3.9rem;
+    }
+
+    .nav > svg {
+        display: none;
+    }
+
+    .nav__tablet-desktop-menu {
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .nav {
+        flex-direction: row;
+        padding: 2.4rem 3.2rem;
+
+    }
+
+    .nav__heading {
+        margin: 0;
+        position: relative;
+        bottom: 0.4rem;
+    }
+
+
+    .list-item {
+        position: relative;
+    }
+
+    .nav__tablet-desktop-menu {
+        position: relative;
+        top: 0.2rem;
+    }
+
+    .nav__tablet-desktop-menu #mercury::before {
+        content: '';
+        height: 4px;
+        width: 6.8rem;
+        display: block;
+        background-color: var(--light-blue);
+        position: absolute;
+        top: -3.2rem;
+        left: -0.2rem;
+        opacity: 0;
+    }
+    .nav__tablet-desktop-menu #venus::before {
+        content: '';
+        height: 4px;
+        width: 4.8rem;
+        display: block;
+        background-color: var(--orange);
+        position: absolute;
+        top: -3.2rem;
+        left: -0rem;
+        opacity: 0;
+    }
+    .nav__tablet-desktop-menu #earth::before {
+        content: '';
+        height: 4px;
+        width: 4.6rem;
+        display: block;
+        background-color: var(--purple);
+        position: absolute;
+        top: -3.2rem;
+        left: -0.1rem;
+        opacity: 0;
+    }
+    .nav__tablet-desktop-menu #mars::before {
+        content: '';
+        height: 4px;
+        width: 4.1rem;
+        display: block;
+        background-color: var(--red);
+        position: absolute;
+        top: -3.2rem;
+        opacity: 0;
+    }
+    .nav__tablet-desktop-menu #jupiter::before {
+        content: '';
+        height: 4px;
+        width: 5.7rem;
+        display: block;
+        background-color: var(--bright-red);
+        position: absolute;
+        top: -3.2rem;
+        opacity: 0;
+    }
+    .nav__tablet-desktop-menu #saturn::before {
+        content: '';
+        height: 4px;
+        width: 5.7rem;
+        display: block;
+        background-color: var(--deep-orange);
+        position: absolute;
+        top: -3.2rem;
+        opacity: 0;
+    }
+    .nav__tablet-desktop-menu #uranus::before {
+        content: '';
+        height: 4px;
+        width: 5.9rem;
+        display: block;
+        background-color: var(--lime);
+        position: absolute;
+        top: -3.2rem;
+        opacity: 0;
+    }
+    .nav__tablet-desktop-menu #neptune::before {
+        content: '';
+        height: 4px;
+        width: 6.5rem;
+        display: block;
+        background-color: var(--blue);
+        position: absolute;
+        top: -3.2rem;
+        opacity: 0;
+    }
+
+    .nav__tablet-desktop-menu #mercury:hover::before,
+    .nav__tablet-desktop-menu #venus:hover::before,
+    .nav__tablet-desktop-menu #earth:hover::before,
+    .nav__tablet-desktop-menu #mars:hover::before,
+    .nav__tablet-desktop-menu #jupiter:hover::before,
+    .nav__tablet-desktop-menu #saturn:hover::before,
+    .nav__tablet-desktop-menu #uranus:hover::before,
+    .nav__tablet-desktop-menu #neptune:hover::before {
+        opacity: 1;
+    }
+
+    .nav__tablet-desktop-menu .menu-btn:hover {
+        opacity: 1;
+    }
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    color: white;
+    padding: 4.4rem 2.4rem 0;
+    font-family: var(--spartan);
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+.mobile-menu__planet {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    margin-right: 2.5rem;
+}
+
+.mobile-menu__planet.mercury {
+    background-color: #def4fc;
+}
+.mobile-menu__planet.venus {
+    background-color: #f7cc7f;
+}
+.mobile-menu__planet.earth {
+    background-color: #545bfe;
+}
+.mobile-menu__planet.mars {
+    background-color: #ff6a45;
+}
+.mobile-menu__planet.jupiter {
+    background-color: #ecad7a;
+}
+.mobile-menu__planet.saturn {
+    background-color: #fccb6b;
+}
+.mobile-menu__planet.uranus {
+    background-color: #65f0d5;
+}
+.mobile-menu__planet.neptune {
+    background-color: #497efa;
+}
+
+.mobile-menu .list-item {
+    cursor: pointer;
+    list-style: none;
+}
+
+.mobile-menu .list-item:nth-of-type(n+2):nth-last-of-type(-n+8) {
+    padding-top: 2rem;
+}
+
+.mobile-menu .list-item:nth-of-type(n+1):nth-of-type(-n+7) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 2.1rem;
+}
+
+.menu-item-container {
+    display: flex;
 }
