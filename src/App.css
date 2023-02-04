@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Antonio:wght@400;500;600;700&family=League+Spartan:wght@400;500;600;700&display=swap');
 
+
+/*******************************
+     CSS RESET
+********************************/
 *,
 *::before,
 *::after {
@@ -20,14 +24,23 @@ body {
     background-size: contain;
 }
 
+/* #root {
+    display: flex;
+    flex-direction: column;
+} */
+
 img, picture, video, canvas, svg {
     display: block;
     max-width: 100%;
 }
 
-/*******************
+
+
+
+
+/********************************************
      VARIABLES
-********************/
+*********************************************/
 :root {
     /* Colors */
     --white: #fff;
@@ -46,14 +59,46 @@ img, picture, video, canvas, svg {
     /* Typography */
     --antonio: 'Antonio', sans-serif;
     --spartan: 'League Spartan', sans-serif;
+
+    /* Planet Color */
+    --planet-color: var(--purple);
+}
+
+/* Planet colors variable */
+.mercury {
+    --planet-color: var(--light-blue);
+}
+
+.venus {
+    --planet-color: var(--orange);
+}
+
+.earth {
+    --planet-color: var(--purple);
+}
+
+.mars {
+    --planet-color: var(--red);
+}
+.jupiter {
+    --planet-color: var(--bright-red);
+}
+.saturn {
+    --planet-color: var(--deep-orange);
+}
+.uranus {
+    --planet-color: var(--lime);
+}
+.neptune {
+    --planet-color: var(--blue);
 }
 
 
 
 
-/*******************
+/***************************************************************************************
     NAV BAR
-********************/
+****************************************************************************************/
 .nav {
     display: flex;
     justify-content: space-between;
@@ -111,7 +156,7 @@ img, picture, video, canvas, svg {
 @media screen and (min-width: 768px) {
     .nav {
         flex-direction: column;
-        padding: 3.2rem 0 2.rem;
+        padding: 3.2rem 0 2.7rem;
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
 
@@ -128,7 +173,7 @@ img, picture, video, canvas, svg {
     }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1024px) {
     .nav {
         flex-direction: row;
         padding: 2.4rem 3.2rem;
@@ -251,7 +296,9 @@ img, picture, video, canvas, svg {
     }
 }
 
-/* Mobile Menu */
+/*********************************************************************************************************
+        MOBILE MENU
+**********************************************************************************************************/
 .mobile-menu {
     color: white;
     padding: 4.4rem 2.4rem 0;
@@ -310,4 +357,604 @@ img, picture, video, canvas, svg {
 
 .menu-item-container {
     display: flex;
+}
+
+
+
+
+
+/*********************************************************************************************************
+        MAIN
+**********************************************************************************************************/
+.main-section {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+/* MOBILE PLANET INFO SELECTOR */
+.mobile-info-selector {
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mobile-info-selector li {
+    list-style: none;
+    position: relative;
+}
+
+.mobile-info-selector button {
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: var(--spartan);
+    outline: none;
+    border: none;
+    padding: 1.9rem 2rem;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.mobile-info-selector button.active {
+    color: var(--white);
+}
+
+.mobile-info-selector .overview::after {
+    content: '';
+    height: 4px;
+    width: 8rem;
+    display: block;
+    background-color: var(--planet-color);
+    position: absolute;
+    bottom: 0;
+    left: 1.3rem;
+    opacity: 0;
+}
+
+.mobile-info-selector .structure::after {
+    content: '';
+    height: 4px;
+    width: 8rem;
+    display: block;
+    background-color: var(--planet-color);
+    position: absolute;
+    bottom: 0;
+    left: 1.6rem;
+    opacity: 0;
+}
+
+.mobile-info-selector .surface::after {
+    content: '';
+    height: 4px;
+    width: 7rem;
+    display: block;
+    background-color: var(--planet-color);
+    position: absolute;
+    bottom: 0;
+    left: 1.3rem;
+    opacity: 0;
+}
+
+.mobile-info-selector .overview.active::after,
+.mobile-info-selector .structure.active::after,
+.mobile-info-selector .surface.active::after {
+    opacity: 1;
+}
+
+
+@media screen and (min-width: 768px) {
+    .mobile-info-selector {
+        display: none;
+    }
+}
+
+
+
+
+
+/**************** PLANET SECTION ******************/
+.planet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    padding: 2.4rem 2.4rem 4.7rem;
+    flex-grow: 1;
+    position: relative;
+}
+
+/* planet container */
+.planet-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.planet-img-container {
+    height: 28rem;
+    width: 100%;
+    position: relative;
+}
+
+/* img */
+.planet #mercury-svg {
+    height: 11.1rem;
+    width: auto;
+    position: absolute;
+    top: 45%;  
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+.planet #venus-svg {
+    height: 15.4rem;
+    width: auto;
+    position: absolute;
+    top: 45%;  
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+.planet #earth-svg {
+    height: 17.3rem;
+    width: auto;
+    position: absolute;
+    top: 45%;  
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+.planet #mars-svg {
+    height: 12.9rem;
+    width: auto;
+    position: absolute;
+    top: 45%;  
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+.planet #jupiter-svg {
+    height: 22.4rem;
+    width: auto;
+    position: absolute;
+    top: 45%;  
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+.planet #saturn-svg {
+    height: 25.6rem;
+    width: auto;
+    position: absolute;
+    top: 45%;  
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+.planet #uranus-svg {
+    height: 17.6rem;
+    width: auto;
+    position: absolute;
+    top: 45%;  
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+.planet #neptune-svg {
+    height: 17.3rem;
+    width: auto;
+    position: absolute;
+    top: 45%;  
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+/* planet info */
+.planet-info {
+    text-align: center;
+}
+
+.planet-info .main-info .heading {
+    font-family: var(--antonio);
+    color: white;
+    font-size: 4rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.planet-info .main-info .tagline {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: var(--spartan);
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.47;
+    margin-bottom: 3.5rem;
+}
+
+.planet-info .main-info .source {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 1.6rem;
+    font-family: var(--spartan);
+    font-weight: 400;
+}
+
+.planet-info .main-info .source span a {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 600;
+    position: relative;
+    font-size: 1.5rem;
+}
+
+.planet-info .main-info .source span a::after {
+    content: url(./assets/icon-source.svg);
+    position: absolute;
+    bottom: 0.1rem;
+    right: -1.6rem;
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
+
+
+
+
+
+/*************** Desktop Info Selector ****************/
+.desktop-info-selector {
+    display: none;
+}
+
+
+
+
+
+
+/***************** MOBILE PLANET STATS *****************/
+.planet-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+    margin-top: 3rem;
+}
+
+.planet-stats div {
+    border: 1px solid var(--desaturated-blue);
+    display: flex;
+    height: 4.8rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2.4rem;
+}
+
+.planet-stats .stat-name {
+    font-family: var(--spartan);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+}
+
+.planet-stats .stat-value {
+    font-family: var(--antonio);
+    font-size: 2rem;
+    color: white;
+}
+
+@media screen and (min-width: 768px) {
+
+    .main-section {
+        margin-top: 3rem;
+    }
+
+    /**************** TABLET PLANET SECTION ******************/
+    .planet {
+        padding: 0 4rem 3.6rem;
+    }
+
+    .planet-img-container {
+        height: 43rem;
+    }
+    /* PLANET IMGS */
+    .planet #mercury-svg {
+        height: 18.4rem;
+        top: 49%;
+    }
+
+    .planet #venus-svg {
+        height: 25.3rem;
+        top: 49%;
+    }
+
+    .planet #earth-svg {
+        height: 28.5rem;
+        width: 28.5rem;
+        top: 49%;
+    }
+
+    .planet #mars-svg {
+        height: 21.3rem;
+        top: 49%;
+    }
+
+    .planet #jupiter-svg {
+        height: 36.9rem;
+        top: 49%;
+    }
+
+    .planet #saturn-svg {
+        height: 42.2rem;
+        top: 49%;
+    }
+
+    .planet #uranus-svg {
+        height: 29rem;
+        top: 49%;
+    }
+
+    .planet #neptune-svg {
+        height: 28.5rem;
+        top: 49%;
+    }
+
+    .planet-info {
+        display: flex;
+        text-align: left;
+        align-items: center;
+        gap: 6.9rem;
+        height: 25.3rem;
+    }
+
+    .main-info {
+        min-height: 25.2rem;
+    }
+
+    .planet-info .main-info .heading {
+        font-size: 4.8rem;
+        margin-bottom: 2.3rem;
+    }
+
+    .planet-info .main-info .tagline {
+        margin-bottom: 2.5rem;
+    }
+
+    /************** TABLET PLANET STATS **************/
+    .planet-stats {
+        flex-direction: row;
+        gap: 1.1rem;
+        margin-top: 2.7rem;
+    }
+
+    .planet-stats div {
+        height: 8.8rem;
+        flex-direction: column;
+        padding: 1.7rem 1.5rem;
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .planet-stats .stat-value {
+        font-size: 2.4rem;
+    }
+
+
+
+
+
+    /*********************************************************************************************************
+                TABLET PLANET INFO SELECTOR
+    **********************************************************************************************************/
+    .desktop-info-selector {
+        display: flex;
+        flex-direction: column;
+        color: white;
+        gap: 1.6rem;
+        width: min-content;
+        position: relative;
+        top: 0.4rem;
+    }
+
+    .desktop-info-selector .info-option {
+        outline: 1px solid var(--desaturated-blue);
+        align-items: center;
+        display: flex;
+        width: 28.1rem;
+        height: 4rem;
+        padding: 0 2rem;
+        font-family: var(--spartan);
+        cursor: pointer;
+    }
+
+    .desktop-info-selector .info-option.active {
+        background-color: var(--planet-color);
+        outline: none;
+    }
+
+    .desktop-info-selector .info-option:hover {
+        background-color: var(--desaturated-blue);
+    }
+
+    /* If selector is active the hover background will be the planet color */
+    .desktop-info-selector .info-option.active:hover {
+        background-color: var(--planet-color);
+    }
+
+    .desktop-info-selector .info-option .number {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+        color: rgba(255, 255, 255, 0.4);
+        font-weight: 500;
+    }
+
+    .desktop-info-selector div .text {
+        text-transform: uppercase;
+        margin-left: 1.6rem;
+        font-size: 1.1rem;
+        letter-spacing: 2px;
+        font-weight: 500;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .main-section {
+        margin-top: 10.5rem;
+    }
+
+    /**************** DESKTOP PLANET SECTION ****************/
+    .planet-container  {
+        flex-direction: row;
+        height: 100%;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 110.8rem;
+    }
+
+    .planet-img-container {
+        width: 60rem;
+        height: 100%;
+    }
+
+    /* PLANET IMGS */
+    .planet #mercury-svg {
+        height: 29rem;
+        top: 51.8%;
+    }
+
+    .planet #venus-svg {
+        height: 40rem;
+        top: 51.8%;
+
+    }
+
+    .planet #earth-svg {
+        height: 45rem;
+        width: 45rem;
+        top: 51.8%;
+
+    }
+
+    .planet #mars-svg {
+        height: 33.6rem;
+        top: 51.8%;
+
+    }
+
+    .planet #jupiter-svg {
+        height: 58.2rem;
+        top: 51.8%;
+
+    }
+
+    .planet #saturn-svg {
+        height: 66.609rem;
+        top: 51.8%;
+
+    }
+
+    .planet #uranus-svg {
+        height: 45.8rem;
+        top: 51.8%;
+
+    }
+
+    .planet #neptune-svg {
+        height: 45rem;
+        top: 51.8%;
+
+    }
+    
+
+    .planet-info {
+        flex-direction: column;
+        width: 35rem;
+        margin: 0;
+        height: min-content;
+        gap: 2.8rem;
+        position: relative;
+        top: 2.2rem;
+    }
+
+    .main-info {
+        min-height: 34.78rem;
+    }
+
+    .planet-info .main-info .heading {
+        font-size: 8rem;
+    }
+
+    .planet-info .main-info .tagline {
+        font-size: 1.7rem;
+        letter-spacing: 0.5px;
+    }
+
+    .planet-info .main-info .source {
+        font-size: 1.8rem;
+    }
+
+    .planet-info .main-info .source span a {
+        font-size: 1.7rem;
+    }
+
+
+
+
+
+
+    /***************** DESKTOP INFO SELECTOR *****************/
+    .desktop-info-selector {
+        width: 100%;
+        top: 0;
+        gap: 1.7rem;
+    }
+
+    .desktop-info-selector .info-option {
+        width: 100%;
+        height: 4.6rem;
+        padding: 0 2.8rem;
+    }
+
+    .desktop-info-selector .info-option.active {
+        height: 4.8rem;
+    }
+
+    .desktop-info-selector .info-option .number {
+        font-size: 1.4rem;
+    }
+
+    .desktop-info-selector .info-option .text {
+        font-size: 1.4rem;
+        letter-spacing: 3px;
+        font-weight: 600;
+        margin-left: 2.8rem;
+    }
+
+
+
+
+
+
+    /*********************** DESKTOP PLANET STATS ***********************/
+    .planet-stats {
+        max-width: 110.8rem;
+        gap: 3rem;
+        margin-top: 10rem;
+    }
+
+    .planet-stats div {
+        height: 12.8rem;
+        padding: 2.3rem;
+    }
+
+    .planet-stats div .stat-name {
+        font-size: 1.4rem;
+    }
+
+    .planet-stats div .stat-value {
+        font-size: 4rem;
+    }
 }
