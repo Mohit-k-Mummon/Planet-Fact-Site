@@ -21,8 +21,17 @@ import { ReactComponent as EarthCore } from '../../assets/planet-earth-internal.
 import { ReactComponent as MarsCore } from '../../assets/planet-mars-internal.svg';
 import { ReactComponent as JupiterCore } from '../../assets/planet-jupiter-internal.svg';
 import { ReactComponent as SaturnCore } from '../../assets/planet-saturn-internal.svg';
-import { ReactComponent as UransuCore } from '../../assets/planet-uranus-internal.svg';
+import { ReactComponent as UranusCore } from '../../assets/planet-uranus-internal.svg';
 import { ReactComponent as NeptuneCore } from '../../assets/planet-neptune-internal.svg';
+
+import MercurySurface from '../../assets/geology-mercury.png';
+import VenusSurface from '../../assets/geology-venus.png';
+import EarthSurface from '../../assets/geology-earth.png';
+import MarsSurface from '../../assets/geology-mars.png';
+import JupiterSurface from '../../assets/geology-jupiter.png';
+import SaturnSurface from '../../assets/geology-saturn.png';
+import UranusSurface from '../../assets/geology-uranus.png';
+import NeptuneSurface from '../../assets/geology-neptune.png';
 
 // PlanetData
 import data from '../../data.json';
@@ -35,6 +44,7 @@ const PlanetInfo = () => {
 	const PlanetCtx = useContext(PlanetContext);
 
 	let planet;
+	let surfaceImg;
 	let index;
 
 	// PLANET IMG DISPLAY LOGIC
@@ -44,6 +54,7 @@ const PlanetInfo = () => {
 		} else {
 			planet = <Mercury id='mercury-svg' />;
 		}
+		surfaceImg = MercurySurface;
 		index = 0;
 	} else if (PlanetCtx.venusActive) {
 		if (SelectorCtx.structureActive) {
@@ -51,6 +62,7 @@ const PlanetInfo = () => {
 		} else {
 			planet = <Venus id='venus-svg' />;
 		}
+		surfaceImg = VenusSurface;
 		index = 1;
 	} else if (PlanetCtx.earthActive) {
 		if (SelectorCtx.structureActive) {
@@ -58,6 +70,7 @@ const PlanetInfo = () => {
 		} else {
 			planet = <Earth id='earth-svg' />;
 		}
+		surfaceImg = EarthSurface;
 		index = 2;
 	} else if (PlanetCtx.marsActive) {
 		if (SelectorCtx.structureActive) {
@@ -65,6 +78,7 @@ const PlanetInfo = () => {
 		} else {
 			planet = <Mars id='mars-svg' />;
 		}
+		surfaceImg = MarsSurface;
 		index = 3;
 	} else if (PlanetCtx.jupiterActive) {
 		if (SelectorCtx.structureActive) {
@@ -72,6 +86,7 @@ const PlanetInfo = () => {
 		} else {
 			planet = <Jupiter id='jupiter-svg' />;
 		}
+		surfaceImg = JupiterSurface;
 		index = 4;
 	} else if (PlanetCtx.saturnActive) {
 		if (SelectorCtx.structureActive) {
@@ -79,13 +94,15 @@ const PlanetInfo = () => {
 		} else {
 			planet = <Saturn id='saturn-svg' />;
 		}
+		surfaceImg = SaturnSurface;
 		index = 5;
 	} else if (PlanetCtx.uranusActive) {
 		if (SelectorCtx.structureActive) {
-			planet = <UransuCore id='uranus-svg' />;
+			planet = <UranusCore id='uranus-svg' />;
 		} else {
 			planet = <Uranus id='uranus-svg' />;
 		}
+		surfaceImg = UranusSurface;
 		index = 6;
 	} else if (PlanetCtx.neptuneActive) {
 		if (SelectorCtx.structureActive) {
@@ -93,6 +110,7 @@ const PlanetInfo = () => {
 		} else {
 			planet = <Neptune id='neptune-svg' />;
 		}
+		surfaceImg = NeptuneSurface;
 		index = 7;
 	}
 
@@ -114,10 +132,21 @@ const PlanetInfo = () => {
 		}
 	}, [SelectorCtx.overviewActive, SelectorCtx.structureActive, SelectorCtx.surfaceActive, index]);
 
+	console.log(SelectorCtx.surfaceActive);
+
 	return (
 		<div className='planet'>
 			<div className='planet-container'>
-				<div className='planet-img-container'>{planet}</div>
+				<div className='planet-img-container'>
+					{planet}
+					<img
+						className={`planet-surface-img ${
+							SelectorCtx.surfaceActive ? 'active' : ''
+						}`}
+						src={surfaceImg}
+						alt='planet-surface'
+					/>
+				</div>
 				<div className='planet-info'>
 					<div className='main-info'>
 						<h1 className='heading'>{data[index].name}</h1>

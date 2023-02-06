@@ -479,6 +479,10 @@ img, picture, video, canvas, svg {
     position: relative;
 }
 
+.planet-surface-img {
+    display: none;
+}
+
 /* img */
 .planet #mercury-svg {
     height: 11.1rem;
@@ -652,6 +656,19 @@ img, picture, video, canvas, svg {
         margin-top: 3rem;
     }
 
+    .planet-surface-img {
+        /* display: none; */
+        position: absolute;
+        height: 19.9rem;
+        width: 16.3rem;
+        left: 50%;
+        transform: translate(-50%, 130%);
+    }
+
+    .planet-surface-img.active {
+        display: block;
+    }
+
     /**************** TABLET PLANET SECTION ******************/
     .planet {
         padding: 0 4rem 3.6rem;
@@ -760,7 +777,7 @@ img, picture, video, canvas, svg {
     }
 
     .desktop-info-selector .info-option {
-        outline: 1px solid var(--desaturated-blue);
+        border: 1px solid var(--desaturated-blue);
         align-items: center;
         display: flex;
         width: 28.1rem;
@@ -772,7 +789,7 @@ img, picture, video, canvas, svg {
 
     .desktop-info-selector .info-option.active {
         background-color: var(--planet-color);
-        outline: none;
+        border: none;
     }
 
     .desktop-info-selector .info-option:hover {
@@ -817,6 +834,10 @@ img, picture, video, canvas, svg {
     .planet-img-container {
         width: 60rem;
         height: 100%;
+    }
+
+    .planet-surface-img {
+        transform: translate(-50%, 40%);
     }
 
     /* PLANET IMGS */
