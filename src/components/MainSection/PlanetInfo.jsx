@@ -5,25 +5,26 @@ import PlanetContext from '../../store/planet-context';
 import SelectorContext from '../../store/selector-context';
 
 // PLANET IMGS
-import { ReactComponent as Mercury } from '../../assets/planet-mercury.svg';
-import { ReactComponent as Venus } from '../../assets/planet-venus.svg';
-import { ReactComponent as Earth } from '../../assets/planet-earth.svg';
-import { ReactComponent as Mars } from '../../assets/planet-mars.svg';
-import { ReactComponent as Jupiter } from '../../assets/planet-jupiter.svg';
-import { ReactComponent as Saturn } from '../../assets/planet-saturn.svg';
-import { ReactComponent as Uranus } from '../../assets/planet-uranus.svg';
-import { ReactComponent as Neptune } from '../../assets/planet-neptune.svg';
+import Mercury from '../../assets/planet-mercury.svg';
+import Venus from '../../assets/planet-venus.svg';
+import Earth from '../../assets/planet-earth.svg';
+import Mars from '../../assets/planet-mars.svg';
+import Jupiter from '../../assets/planet-jupiter.svg';
+import Saturn from '../../assets/planet-saturn.svg';
+import Uranus from '../../assets/planet-uranus.svg';
+import Neptune from '../../assets/planet-neptune.svg';
 
 // PLANET CORE IMGS
-import { ReactComponent as MercuryCore } from '../../assets/planet-mercury-internal.svg';
-import { ReactComponent as VenusCore } from '../../assets/planet-venus-internal.svg';
-import { ReactComponent as EarthCore } from '../../assets/planet-earth-internal.svg';
-import { ReactComponent as MarsCore } from '../../assets/planet-mars-internal.svg';
-import { ReactComponent as JupiterCore } from '../../assets/planet-jupiter-internal.svg';
-import { ReactComponent as SaturnCore } from '../../assets/planet-saturn-internal.svg';
-import { ReactComponent as UranusCore } from '../../assets/planet-uranus-internal.svg';
-import { ReactComponent as NeptuneCore } from '../../assets/planet-neptune-internal.svg';
+import MercuryCore from '../../assets/planet-mercury-internal.svg';
+import VenusCore from '../../assets/planet-venus-internal.svg';
+import EarthCore from '../../assets/planet-earth-internal.svg';
+import MarsCore from '../../assets/planet-mars-internal.svg';
+import JupiterCore from '../../assets/planet-jupiter-internal.svg';
+import SaturnCore from '../../assets/planet-saturn-internal.svg';
+import UranusCore from '../../assets/planet-uranus-internal.svg';
+import NeptuneCore from '../../assets/planet-neptune-internal.svg';
 
+// PLANET SURFACE IMGS
 import MercurySurface from '../../assets/geology-mercury.png';
 import VenusSurface from '../../assets/geology-venus.png';
 import EarthSurface from '../../assets/geology-earth.png';
@@ -43,77 +44,78 @@ const PlanetInfo = () => {
 	// Planet Context
 	const PlanetCtx = useContext(PlanetContext);
 
+	// PLANET IMG DISPLAY LOGIC
 	let planet;
 	let surfaceImg;
 	let index;
 
-	// PLANET IMG DISPLAY LOGIC
 	if (PlanetCtx.mercuryActive) {
 		if (SelectorCtx.structureActive) {
-			planet = <MercuryCore id='mercury-svg' />;
+			planet = <img id='mercury-svg' src={MercuryCore} alt='Mercury'></img>;
 		} else {
-			planet = <Mercury id='mercury-svg' />;
+			planet = <img id='mercury-svg' src={Mercury} alt='Mercury'></img>;
 		}
 		surfaceImg = MercurySurface;
 		index = 0;
 	} else if (PlanetCtx.venusActive) {
 		if (SelectorCtx.structureActive) {
-			planet = <VenusCore id='venus-svg' />;
+			planet = <img id='venus-svg' src={VenusCore} alt='Venus'></img>;
 		} else {
-			planet = <Venus id='venus-svg' />;
+			planet = <img id='venus-svg' src={Venus} alt='Venus'></img>;
 		}
 		surfaceImg = VenusSurface;
 		index = 1;
 	} else if (PlanetCtx.earthActive) {
 		if (SelectorCtx.structureActive) {
-			planet = <EarthCore id='earth-svg' />;
+			planet = <img id='earth-svg' src={EarthCore} alt='Earth'></img>;
 		} else {
-			planet = <Earth id='earth-svg' />;
+			planet = <img id='earth-svg' src={Earth} alt='Earth'></img>;
 		}
 		surfaceImg = EarthSurface;
 		index = 2;
 	} else if (PlanetCtx.marsActive) {
 		if (SelectorCtx.structureActive) {
-			planet = <MarsCore id='mars-svg' />;
+			planet = <img id='mars-svg' src={MarsCore} alt='Mars'></img>;
 		} else {
-			planet = <Mars id='mars-svg' />;
+			planet = <img id='mars-svg' src={Mars} alt='Mars'></img>;
 		}
 		surfaceImg = MarsSurface;
 		index = 3;
 	} else if (PlanetCtx.jupiterActive) {
 		if (SelectorCtx.structureActive) {
-			planet = <JupiterCore id='jupiter-svg' />;
+			planet = <img id='jupiter-svg' src={JupiterCore} alt='Jupiter'></img>;
 		} else {
-			planet = <Jupiter id='jupiter-svg' />;
+			planet = <img id='jupiter-svg' src={Jupiter} alt='Jupiter'></img>;
 		}
 		surfaceImg = JupiterSurface;
 		index = 4;
 	} else if (PlanetCtx.saturnActive) {
 		if (SelectorCtx.structureActive) {
-			planet = <SaturnCore id='saturn-svg' />;
+			planet = <img id='saturn-svg' src={SaturnCore} alt='Saturn'></img>;
 		} else {
-			planet = <Saturn id='saturn-svg' />;
+			planet = <img id='saturn-svg' src={Saturn} alt='Saturn'></img>;
 		}
 		surfaceImg = SaturnSurface;
 		index = 5;
 	} else if (PlanetCtx.uranusActive) {
 		if (SelectorCtx.structureActive) {
-			planet = <UranusCore id='uranus-svg' />;
+			planet = <img id='uranus-svg' src={UranusCore} alt='Uranus'></img>;
 		} else {
-			planet = <Uranus id='uranus-svg' />;
+			planet = <img id='uranus-svg' src={Uranus} alt='Uranus'></img>;
 		}
 		surfaceImg = UranusSurface;
 		index = 6;
 	} else if (PlanetCtx.neptuneActive) {
 		if (SelectorCtx.structureActive) {
-			planet = <NeptuneCore id='neptune-svg' />;
+			planet = <img id='neptune-svg' src={NeptuneCore} alt='Neptune'></img>;
 		} else {
-			planet = <Neptune id='neptune-svg' />;
+			planet = <img id='neptune-svg' src={Neptune} alt='Neptune'></img>;
 		}
 		surfaceImg = NeptuneSurface;
 		index = 7;
 	}
 
+	// Page content state
 	const [content, setContent] = useState(data[index].overview.content);
 	const [source, setSource] = useState(data[index].overview.source);
 
@@ -131,8 +133,6 @@ const PlanetInfo = () => {
 			setSource(data[index].geology.source);
 		}
 	}, [SelectorCtx.overviewActive, SelectorCtx.structureActive, SelectorCtx.surfaceActive, index]);
-
-	console.log(SelectorCtx.surfaceActive);
 
 	return (
 		<div className='planet'>
