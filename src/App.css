@@ -837,21 +837,21 @@ img, picture, video, canvas, svg {
     }
 
     .planet-surface-img {
-        transform: translate(-50%, 40%);
+        transform: translate(-72%, 40%);
     }
 
     /* PLANET IMGS */
     .planet #mercury-svg {
         height: 29rem;
         top: 51.8%;
-        transform: translate(-58%, -49%);
+        transform: translate(-63%, -49%);
 
     }
 
     .planet #venus-svg {
         height: 40rem;
         top: 51.8%;
-        transform: translate(-58%, -49%);
+        transform: translate(-59%, -49%);
 
 
     }
@@ -868,7 +868,7 @@ img, picture, video, canvas, svg {
     .planet #mars-svg {
         height: 33.6rem;
         top: 51.8%;
-        transform: translate(-58%, -49%);
+        transform: translate(-61%, -49%);
 
 
     }
@@ -876,7 +876,7 @@ img, picture, video, canvas, svg {
     .planet #jupiter-svg {
         height: 58.2rem;
         top: 51.8%;
-        transform: translate(-58%, -49%);
+        transform: translate(-56%, -49%);
 
 
     }
@@ -884,7 +884,7 @@ img, picture, video, canvas, svg {
     .planet #saturn-svg {
         height: 66.609rem;
         top: 51.8%;
-        transform: translate(-58%, -49%);
+        transform: translate(-55.3%, -49%);
 
 
     }
