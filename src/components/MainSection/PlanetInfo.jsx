@@ -196,7 +196,7 @@ const PlanetInfo = () => {
 				</div>
 				<div>
 					<p className='stat-name'>radius</p>
-					<p className='stat-value'>{data[index].rotation}</p>
+					<p className='stat-value'>{data[index].radius}</p>
 				</div>
 				<div>
 					<p className='stat-name'>Average Temp.</p>
